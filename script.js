@@ -14,8 +14,9 @@ $(document).ready(function() {
 
   function getAllAvailableBoards(callback, callbackArgs) {
     // var requestUrl = trelloApiRoot + '/boards';
-	var requestUrl = trelloApiRoot + '/boards/649c33341bf42b2fa397c63f/?key=0cafe9d9af19a35c1e2cabe5c08a4716&token=ATTA67ca93c23df48198e4823bf04886c79c0ee3b5b77c7605ffc040d9ae35745aa50906A375&fields=name,desc,url&lists=all&list_fields=name,closed,pos,softLimit,idBoard,subscribed';
-    $.ajax({
+	//var requestUrl = trelloApiRoot + '/boards/649c33341bf42b2fa397c63f/?key=0cafe9d9af19a35c1e2cabe5c08a4716&token=ATTA67ca93c23df48198e4823bf04886c79c0ee3b5b77c7605ffc040d9ae35745aa50906A375&fields=name,desc,url&lists=all&list_fields=name,closed,pos,softLimit,idBoard,subscribed';
+    var requestUrl = trelloApiRoot +'/members/649c2b24dc822636917e6a63/boards?key=0cafe9d9af19a35c1e2cabe5c08a4716&token=ATTA67ca93c23df48198e4823bf04886c79c0ee3b5b77c7605ffc040d9ae35745aa50906A375&fields=name,desc&lists=all&list_fields=name,closed,pos,softLimit,idBoard,subscribed';
+	$.ajax({
       url: requestUrl,
       method: 'GET',
       contentType: 'application/json',
@@ -182,7 +183,7 @@ $(document).ready(function() {
     parentEl.find('[data-task-name-input]').val(taskTitle);
     parentEl.find('[data-task-content-input]').val(taskContent);
   }
-/*
+
   function handleBoardNameSelect(event) {
     var $changedSelectEl = $(event.target);
     var selectedBoardId = $changedSelectEl.val();
@@ -191,42 +192,7 @@ $(document).ready(function() {
 
     $listNameSelectEl.empty().append(preparedListOptions);
   }
-*/
-function handleBoardNameSelect(event) {
-  var $changedSelectEl = $(event.target);
-  var selectedBoardId = $changedSelectEl.val();
 
-  // Check if the selectedBoardId is valid
-  if (!selectedBoardId) {
-    console.error('Invalid board ID selected.');
-    return;
-  }
-
-  // Fetch the lists for the selected board from the Trello API
-  fetchListsForBoard(selectedBoardId);
-}
-
-function fetchListsForBoard(boardId) {
-  var requestUrl = trelloApiRoot + '/boards/' + boardId + '/lists?key=0cafe9d9af19a35c1e2cabe5c08a4716&token=ATTA67ca93c23df48198e4823bf04886c79c0ee3b5b77c7605ffc040d9ae35745aa50906A375';
-
-  $.ajax({
-    url: requestUrl,
-    method: 'GET',
-    success: function (lists) {
-      // Update the list select options with the fetched lists
-      var $listNameSelectEl = $('[data-list-name-select]');
-      $listNameSelectEl.empty();
-      lists.forEach(function (list) {
-        $listNameSelectEl.append($('<option>')
-          .val(list.id)
-          .text(list.name || 'Unknown list'));
-      });
-    },
-    error: function (error) {
-      console.error('Error fetching lists:', error);
-    }
-  });
-}
 
   function handleCardCreationRequest(event) {
     var requestUrl = trelloApiRoot + '/cards';
