@@ -13,7 +13,7 @@ $(document).ready(function() {
   getAllTasks();
 
   function getAllAvailableBoards(callback, callbackArgs) {
-    var requestUrl = trelloApiRoot + '/boards/649c33341bf42b2fa397c63f/?key=0cafe9d9af19a35c1e2cabe5c08a4716&token=ATTA67ca93c23df48198e4823bf04886c79c0ee3b5b77c7605ffc040d9ae35745aa50906A375';
+    var requestUrl = trelloApiRoot + '/boards/649c33341bf42b2fa397c63f/?key=0cafe9d9af19a35c1e2cabe5c08a4716&token=ATTA67ca93c23df48198e4823bf04886c79c0ee3b5b77c7605ffc040d9ae35745aa50906A375&fields=name,desc&lists=all&list_fields=name,closed,pos,softLimit,idBoard,subscribed';
 
     $.ajax({
       url: requestUrl,
