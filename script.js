@@ -46,7 +46,7 @@ $(document).ready(function() {
     });
   }
 
-  /*function handleDatatableRender(taskData, boards) {
+  function handleDatatableRender(taskData, boards) {
 	console.log('Received task data:', taskData);
     console.log('Received boards data:', boards);
 	
@@ -64,8 +64,8 @@ $(document).ready(function() {
 
       $datatableRowEl.appendTo($tasksContainer);
     });
-  }*/
-  
+  }
+  /*
   function handleDatatableRender(taskData, boardsData) {
   console.log('Received task data:', taskData);
   console.log('Received boards data:', boardsData);
@@ -88,7 +88,7 @@ $(document).ready(function() {
     $datatableRowEl.appendTo($tasksContainer);
 	});
 	}
-
+*/
 
   function getAllTasks() {
     const requestUrl = apiRoot;
