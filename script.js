@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  const apiRoot = 'tasksboardapplication.tomaszgajewski0.repl.co/v1/tasks';
+  const apiRoot = 'https://tasksboardapplication.tomaszgajewski0.repl.co/v1/tasks';
   //const trelloApiRoot = 'http://localhost:8080/v1/trello';
   const trelloApiRoot = 'https://api.trello.com/1';
   const datatableRowTemplate = $('[data-datatable-row-template]').children()[0];
