@@ -85,7 +85,8 @@ $(document).ready(function() {
     });
 
     $datatableRowEl.appendTo($tasksContainer);
-  });*/
+  });
+  }*/
   
   function handleBoardNameSelect(event) {
   var $changedSelectEl = $(event.target);
@@ -110,9 +111,9 @@ $(document).ready(function() {
   } else {
     console.error('Selected board not found:', selectedBoardId);
   }
-}
+  }
 
-}
+
 
 
   function getAllTasks() {
