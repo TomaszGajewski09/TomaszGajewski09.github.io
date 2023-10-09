@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  var apiRoot = 'https://replittest.tomaszgajewski0.repl.co/v1/tasks';
+  var apiRoot = 'https://tasksboardapplication.tomaszgajewski0.repl.co/v1/tasks';
   var datatableRowTemplate = $('[data-datatable-row-template]').children()[0];
   var tasksContainer = $('[data-tasks-container]');
 
