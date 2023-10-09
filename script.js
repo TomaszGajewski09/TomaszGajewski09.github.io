@@ -65,7 +65,7 @@ $(document).ready(function() {
     });
   }*/
   
-  function handleDatatableRender(taskData, boardsData) {
+  /*function handleDatatableRender(taskData, boardsData) {
   console.log('Received task data:', taskData);
   console.log('Received boards data:', boardsData);
 
@@ -85,7 +85,33 @@ $(document).ready(function() {
     });
 
     $datatableRowEl.appendTo($tasksContainer);
-  });
+  });*/
+  
+  function handleBoardNameSelect(event) {
+  var $changedSelectEl = $(event.target);
+  var selectedBoardId = $changedSelectEl.val();
+  var $listNameSelectEl = $changedSelectEl.siblings('[data-list-name-select]');
+
+  // Clear previous options in list-name select
+  $listNameSelectEl.empty();
+
+  // Get the lists for the selected board
+  var selectedBoard = availableBoards[selectedBoardId];
+  if (selectedBoard) {
+    var lists = selectedBoard.lists;
+
+    // Populate the list-name select with options
+    lists.forEach(function (list) {
+      $listNameSelectEl.append($('<option>')
+        .addClass('crud-select__option')
+        .val(list.id)
+        .text(list.name || 'Unknown list'));
+    });
+  } else {
+    console.error('Selected board not found:', selectedBoardId);
+  }
+}
+
 }
 
 
