@@ -45,7 +45,7 @@ $(document).ready(function() {
     });
   }
 
-  function handleDatatableRender(taskData, boards) {
+  /*function handleDatatableRender(taskData, boards) {
 	console.log('Received task data:', taskData);
     console.log('Received boards data:', boards);
 	
@@ -61,10 +61,33 @@ $(document).ready(function() {
       $datatableRowEl.find('[data-board-name-select]')
           .append($availableBoardsOptionElements);
 
-      $datatableRowEl
-          .appendTo($tasksContainer);
+      $datatableRowEl.appendTo($tasksContainer);
     });
-  }
+  }*/
+  
+  function handleDatatableRender(taskData, boardsData) {
+  console.log('Received task data:', taskData);
+  console.log('Received boards data:', boardsData);
+
+  const boardsLists = boardsData.lists;
+  
+  $tasksContainer.empty();
+
+  taskData.forEach(function (task) {
+    const $datatableRowEl = createElement(task);
+
+    const $boardNameSelect = $datatableRowEl.find('[data-board-name-select]');
+    boardsLists.forEach(board => {
+      $boardNameSelect.append($('<option>')
+        .addClass('crud-select__option')
+        .val(board.id)
+        .text(board.name || 'Unknown name'));
+    });
+
+    $datatableRowEl.appendTo($tasksContainer);
+  });
+}
+
 
   function getAllTasks() {
     const requestUrl = apiRoot;
