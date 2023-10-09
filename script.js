@@ -182,7 +182,7 @@ $(document).ready(function() {
     parentEl.find('[data-task-name-input]').val(taskTitle);
     parentEl.find('[data-task-content-input]').val(taskContent);
   }
-/*
+
   function handleBoardNameSelect(event) {
     var $changedSelectEl = $(event.target);
     var selectedBoardId = $changedSelectEl.val();
@@ -191,30 +191,6 @@ $(document).ready(function() {
 
     $listNameSelectEl.empty().append(preparedListOptions);
   }
-*/
-
-	function handleBoardNameSelect(event) {
-	var $changedSelectEl = $(event.target);
-	var selectedBoardId = $changedSelectEl.val();
-	var $listNameSelectEl = $changedSelectEl.siblings('[data-list-name-select]');
-
-	  $listNameSelectEl.empty();
-
-	  var selectedBoard = availableBoards[selectedBoardId];
-	  if (selectedBoard) {
-		var lists = selectedBoard.lists;
-
-		lists.forEach(function (list) {
-		  $listNameSelectEl.append($('<option>')
-			.addClass('crud-select__option')
-			.val(list.id)
-			.text(list.name || 'Unknown list'));
-		});
-	  } else {
-		console.error('Selected board not found:', selectedBoardId);
-	  }
-	}
-
 
   function handleCardCreationRequest(event) {
     var requestUrl = trelloApiRoot + '/cards';
