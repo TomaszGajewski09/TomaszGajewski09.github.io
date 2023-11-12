@@ -217,6 +217,7 @@ $(document).ready(function() {
       data: JSON.stringify({
         name: relatedTask.title,
         description: relatedTask.content,
+		pos: "top",
         listId: selectedListId
       }),
       success: function(data) {
