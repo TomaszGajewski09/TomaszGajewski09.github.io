@@ -200,8 +200,9 @@ $(document).ready(function() {
     var relatedTaskId = $relatedTaskRow.attr('data-task-id');
     var relatedTask = availableTasks[relatedTaskId];
     var selectedListId = $relatedTaskRow.find('[data-list-name-select]').val();
-    var requestUrl = trelloApiRoot + '/cards?idList='+selectedListId + '&key=0cafe9d9af19a35c1e2cabe5c08a4716&token=ATTA67ca93c23df48198e4823bf04886c79c0ee3b5b77c7605ffc040d9ae35745aa50906A375';
-
+    //var requestUrl = trelloApiRoot + '/cards?idList='+selectedListId + '&key=0cafe9d9af19a35c1e2cabe5c08a4716&token=ATTA67ca93c23df48198e4823bf04886c79c0ee3b5b77c7605ffc040d9ae35745aa50906A375';
+	var requsetUrl = 'https://tasksboardapplication.tomaszgajewski0.repl.co/v1/trello/cards'
+	
     if (!selectedListId) {
       alert('You have to select a board and a list first!');
       return;
